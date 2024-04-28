@@ -1,0 +1,124 @@
+---
+import ServiceCard from "./ServiceCard.astro";
+
+class ServiceCardData {
+  readonly label: string;
+  readonly description: string;
+  readonly imgPath: string;
+
+  constructor(label: string, description: string, imgPath: string) {
+    this.label = label;
+    this.description = description;
+    this.imgPath = imgPath;
+  }
+}
+
+const services: ServiceCardData[] = [
+  new ServiceCardData(
+    "Traduction",
+    "Service de traduction de l'anglais ou de l'italien vers le français",
+    "/images/cards/dictionary-min.jpg",
+  ),
+  new ServiceCardData(
+    "Révision",
+    "Service de correction d'un texte déjà traduit en français",
+    "/images/cards/dictionary-min.jpg",
+  ),
+  new ServiceCardData(
+    "Relecture",
+    "Service de correction d'un texte déjà rédigé en français",
+    "/images/cards/dictionary-min.jpg",
+  ),
+  new ServiceCardData(
+    "Correction d'épreuves",
+    "Service de correction orthotypographique, d'uniformisation de la mise en page, d'harmonisation de la bibliographie et de la graphie des noms propres, etc., en vue de publication",
+    "/images/cards/review-min.jpg",
+  ),
+];
+---
+
+<section id="services">
+  <h2>Mes Services</h2>
+  <ul>
+    {
+      services.map((item) => (
+        <ServiceCard
+          label={item.label}
+          description={item.description}
+          imgPath={item.imgPath}
+        />
+      ))
+    }
+  </ul>
+</section>
+
+<style lang="scss">
+  @import "../../styles/breakpoints.scss";
+
+  section > * {
+    // border: 1px solid red;
+  }
+
+  section {
+    position: relative;
+    padding: 40px 100px 60px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+    margin-bottom: 100vh;
+
+    h2 {
+      font-family: var(--font-cursive);
+      font-size: 4rem;
+      line-height: 4rem;
+      text-align: center;
+      color: var(--color-tertiary);
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+      border-bottom: 3px solid var(--color-tertiary);
+    }
+
+    ul {
+      width: 70%;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px 4%;
+      justify-content: center;
+    }
+  }
+
+  @media only screen and (max-width: $breakpoint-x-lg) {
+    section ul {
+      width: 90%;
+    }
+  }
+
+  @media only screen and (max-width: $breakpoint-lg) {
+    section {
+      padding: 40px 40px;
+
+      h2 {
+        font-size: 3rem;
+        line-height: 3rem;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: $breakpoint-md) {
+    section {
+      padding: 20px 30px;
+
+      ul {
+        width: 100%;
+      }
+    }
+  }
+
+  @media only screen and (max-width: $breakpoint-x-sl) {
+    section {
+      padding: 20px 20px;
+    }
+  }
+</style>

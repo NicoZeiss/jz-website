@@ -1,8 +1,8 @@
 ---
-import "../styles/global.css";
+import "../styles/global.scss";
 import Header from "../components/header/Header.astro";
 
-const {pageTitle} = Astro.props;
+const { pageTitle } = Astro.props;
 ---
 
 <html lang="fr">
@@ -14,10 +14,15 @@ const {pageTitle} = Astro.props;
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-    <Header />
-    <slot />
+		<Header />
+		<slot />
 
-		<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+		<script
+			type="module"
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+		></script>
+		<script
+			nomodule
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 	</body>
 </html>

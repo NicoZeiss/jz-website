@@ -15,11 +15,19 @@ import SocialNetworkItem from "./SocialNetworkItem.astro";
   />
 </ul>
 
-<style>
+<style lang="scss">
+  @import "../../styles/breakpoints.scss";
+
   ul {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     gap: 30px;
+  }
+
+  @media only screen and (max-width: $breakpoint-lg) {
+    ul {
+      gap: 20px;
+    }
   }
 </style>

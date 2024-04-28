@@ -6,15 +6,17 @@ import SocialNetworks from "./SocialNetworks.astro";
 
 <header>
   <Logo />
-  <Navigation />
+  <Navigation class="test" />
   <SocialNetworks />
 </header>
 
-<style>
+<style lang="scss">
+  @import "../../styles/breakpoints.scss";
+
   header {
     position: fixed;
     height: 100vh;
-    width: var(--navbar-width);
+    width: var(--navbar-thickness);
     padding: 20px;
     z-index: var(--navbar-index);
     display: flex;
@@ -23,5 +25,20 @@ import SocialNetworks from "./SocialNetworks.astro";
     justify-content: space-between;
     background-color: var(--color-white);
     box-shadow: 3px 0 7px rgba(0, 0, 0, 0.5);
+  }
+
+  @media only screen and (max-width: $breakpoint-lg) {
+    header {
+      padding: 10px;
+    }
+  }
+
+  @media only screen and (max-width: $breakpoint-sl) {
+    header {
+      width: 100%;
+      height: var(--navbar-thickness);
+      flex-direction: row;
+      align-items: center;
+    }
   }
 </style>

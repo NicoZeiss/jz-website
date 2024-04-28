@@ -12,17 +12,10 @@ class BaselineData {
   }
 }
 
-const firstBaselineItem = new BaselineData(
-  Strings.homeSectionBaseline,
-  "ribbon",
-);
-const secondBaselineItem = new BaselineData("Anglais > français", "earth");
-const thirdBaselineItem = new BaselineData("Italien > français", "earth");
-
 const baselineItems: BaselineData[] = [
-  firstBaselineItem,
-  secondBaselineItem,
-  thirdBaselineItem,
+  new BaselineData(Strings.homeSectionBaseline, "ribbon"),
+  new BaselineData("Anglais > français", "earth"),
+  new BaselineData("Italien > français", "earth"),
 ];
 ---
 
@@ -40,7 +33,9 @@ const baselineItems: BaselineData[] = [
   </div>
 </section>
 
-<style>
+<style lang="scss">
+  @import "../../styles/breakpoints.scss";
+
   section {
     position: relative;
     height: 100vh;
@@ -74,12 +69,38 @@ const baselineItems: BaselineData[] = [
 
   h1 {
     font-size: clamp(3rem, 10vw, 10rem);
-    /* text-wrap: nowrap; */
+    text-wrap: nowrap;
   }
 
   ul {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 16px;
+  }
+
+  @media only screen and (max-width: $breakpoint-sl) {
+    section .content {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      top: 54%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+
+      h1 {
+        font-size: 3.8rem;
+        margin-bottom: 30px;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      ul {
+        align-items: center;
+      }
+    }
   }
 </style>

@@ -10,7 +10,9 @@ import { Strings } from "../../constants";
   </div>
 </div>
 
-<style>
+<style lang="scss">
+  @import "../../styles/breakpoints.scss";
+
   .logo {
     margin-top: 20px;
     display: flex;
@@ -18,28 +20,52 @@ import { Strings } from "../../constants";
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
+
+    img {
+      width: 80px;
+      flex-shrink: 0;
+    }
+
+    .logo__text {
+      max-width: 200px;
+    }
+
+    h2 {
+      font-size: 1.8em;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      color: var(--color-primary);
+    }
+
+    p {
+      font-weight: 700;
+      font-size: 0.8em;
+      letter-spacing: 0.05em;
+      color: var(--color-dark);
+    }
   }
 
-  .logo img {
-    width: 80px;
-    flex-shrink: 0;
-  }
+  @media only screen and (max-width: $breakpoint-lg) {
+    .logo {
+      margin-top: 0;
 
-  .logo__text {
-    max-width: 200px;
-  }
+      img {
+        width: 50px;
+      }
 
-  .logo__text h2 {
-    font-size: 1.8em;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-    color: var(--color-primary);
-  }
+      h2 {
+        font-size: 1.2em;
+        letter-spacing: 0.02em;
+      }
 
-  .logo__text p {
-    font-weight: 700;
-    font-size: 0.8em;
-    letter-spacing: 0.05em;
-    color: var(--color-dark);
+      p {
+        font-size: 0.6em;
+        letter-spacing: 0.02em;
+      }
+
+      .logo__text {
+        max-width: 160px;
+      }
+    }
   }
 </style>

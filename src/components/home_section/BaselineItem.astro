@@ -7,7 +7,9 @@ const { logo, text } = Astro.props;
   <p>{text}</p>
 </li>
 
-<style>
+<style lang="scss">
+  @import "../../styles/breakpoints.scss";
+
   li {
     display: flex;
     flex-wrap: nowrap;
@@ -16,12 +18,35 @@ const { logo, text } = Astro.props;
   }
 
   ion-icon {
-    font-size: 1.4rem;
+    --size: 24px;
+
+    height: var(--size);
+    width: var(--size);
+    flex-shrink: 0;
   }
 
   li p {
-    font-size: 1.1rem;
+    font-size: clamp(0.8rem, 2vw, 1rem);
     line-height: 1.4rem;
     font-weight: 300;
+  }
+
+  @media only screen and (max-width: $breakpoint-sl) {
+    li {
+      flex-direction: column;
+      gap: 4px;
+      max-width: 400px;
+
+      ion-icon {
+        --size: 16px;
+
+        height: var(--size);
+        width: var(--size);
+      }
+
+      p {
+        text-align: center;
+      }
+    }
   }
 </style>
