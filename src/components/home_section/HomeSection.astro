@@ -1,11 +1,42 @@
 ---
 import { Strings } from "../../constants";
+import BaselineItem from "./BaselineItem.astro";
+
+class BaselineData {
+  readonly text: string;
+  readonly logo: string;
+
+  constructor(text: string, logo: string) {
+    this.text = text;
+    this.logo = logo;
+  }
+}
+
+const firstBaselineItem = new BaselineData(
+  Strings.homeSectionBaseline,
+  "ribbon",
+);
+const secondBaselineItem = new BaselineData("Anglais > français", "earth");
+const thirdBaselineItem = new BaselineData("Italien > français", "earth");
+
+const baselineItems: BaselineData[] = [
+  firstBaselineItem,
+  secondBaselineItem,
+  thirdBaselineItem,
+];
 ---
 
 <section>
   <div class="content">
     <h2>Bienvenue sur le site de</h2>
     <h1>{Strings.siteTitle}</h1>
+    <ul>
+      {
+        baselineItems.map((item) => (
+          <BaselineItem text={item.text} logo={item.logo} />
+        ))
+      }
+    </ul>
   </div>
 </section>
 
@@ -15,15 +46,11 @@ import { Strings } from "../../constants";
     height: 100vh;
     overflow: hidden;
     background-image: var(--bg-radial), var(--bg-linear),
-      url(images/backgrounds/bg-home.jpg);
+      url(/images/backgrounds/bg-home.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-  }
-
-  section * {
-    /* border: solid 1px red; */
   }
 
   .content {
@@ -31,8 +58,7 @@ import { Strings } from "../../constants";
     top: 50%;
     transform: translateY(-50%);
     max-height: 100%;
-    width: 100%;
-    padding-left: 70px;
+    padding: 0 3vw;
     color: var(--color-white);
   }
 
@@ -43,10 +69,17 @@ import { Strings } from "../../constants";
   }
 
   h2 {
-    font-size: 2.6rem;
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
   }
 
   h1 {
-    font-size: 10rem;
+    font-size: clamp(3rem, 10vw, 10rem);
+    /* text-wrap: nowrap; */
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 </style>

@@ -1,0 +1,27 @@
+---
+const { logo, text } = Astro.props;
+---
+
+<li>
+  <ion-icon name={logo}></ion-icon>
+  <p>{text}</p>
+</li>
+
+<style>
+  li {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  ion-icon {
+    font-size: 1.4rem;
+  }
+
+  li p {
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+    font-weight: 300;
+  }
+</style>
