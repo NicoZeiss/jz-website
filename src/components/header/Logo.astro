@@ -1,0 +1,45 @@
+---
+import { Strings } from "../../constants";
+---
+
+<div class="logo">
+  <img src="images/logos/logo.png" alt="" />
+  <div class="logo__text">
+    <h2>{Strings.siteTitle}</h2>
+    <p>{Strings.logoBaseline}</p>
+  </div>
+</div>
+
+<style>
+  .logo {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .logo img {
+    width: 80px;
+    flex-shrink: 0;
+  }
+
+  .logo__text {
+    max-width: 200px;
+  }
+
+  .logo__text h2 {
+    font-size: 1.8em;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    color: var(--color-primary);
+  }
+
+  .logo__text p {
+    font-weight: 700;
+    font-size: 0.8em;
+    letter-spacing: 0.05em;
+    color: var(--color-dark);
+  }
+</style>

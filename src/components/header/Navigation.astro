@@ -1,0 +1,23 @@
+---
+import NavigationItem from "./NavigationItem.astro";
+---
+
+<nav>
+  <ul>
+    <NavigationItem label="Accueil" href="#" />
+    <NavigationItem label="Mes services" href="#" />
+    <NavigationItem label="Qui suis-je ?" href="#" />
+    <NavigationItem label="Mes publications" href="#" />
+    <NavigationItem label="Contact" href="#" />
+  </ul>
+</nav>
+
+<style>
+  ul {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+  }
+</style>

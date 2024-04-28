@@ -1,0 +1,25 @@
+---
+import SocialNetworkItem from "./SocialNetworkItem.astro";
+---
+
+<ul>
+  <SocialNetworkItem
+    imgPath="images/logos/linkedin_logo.png"
+    imgAlt="LinkedIn logo"
+    href="https://www.linkedin.com/in/julie-zeisser/"
+  />
+  <SocialNetworkItem
+    imgPath="images/logos/proz_logo.png"
+    imgAlt="ProZ logo"
+    href="https://www.proz.com/translator/3394663"
+  />
+</ul>
+
+<style>
+  ul {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 30px;
+  }
+</style>

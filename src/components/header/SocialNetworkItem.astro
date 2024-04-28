@@ -1,0 +1,46 @@
+---
+const { imgPath, imgAlt, href } = Astro.props;
+---
+
+<li>
+  <a href={href} target="_blank">
+    <img src={imgPath} alt={imgAlt} />
+  </a>
+</li>
+
+<style>
+  li {
+    --size: 40px;
+    --transition: 0.2s;
+
+    position: relative;
+    height: var(--size);
+    width: var(--size);
+  }
+
+  li a img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    filter: saturate(0) contrast(500%);
+    transition: var(--transition);
+  }
+
+  li a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--color-primary);
+    mix-blend-mode: screen;
+    transition: var(--transition);
+  }
+
+  li:hover a img {
+    filter: saturate(1) contrast(100%);
+  }
+
+  li:hover a::after {
+    background: transparent;
+  }
+</style>

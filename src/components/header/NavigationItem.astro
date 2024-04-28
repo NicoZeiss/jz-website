@@ -1,0 +1,28 @@
+---
+const { label, href, target = "_self" } = Astro.props;
+---
+
+<li>
+  <a href={href} target={target}>{label}</a>
+</li>
+
+<style>
+  li {
+    position: relative;
+    padding: 8px 0;
+  }
+
+  li a {
+    text-transform: uppercase;
+    font-size: 1.3em;
+    white-space: nowrap;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    transition: 0.4s;
+  }
+
+  li:hover a {
+    margin-left: 10px;
+    color: var(--color-tertiary);
+  }
+</style>

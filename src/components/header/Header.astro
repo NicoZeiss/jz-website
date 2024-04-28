@@ -1,0 +1,27 @@
+---
+import Logo from "./Logo.astro";
+import Navigation from "./Navigation.astro";
+import SocialNetworks from "./SocialNetworks.astro";
+---
+
+<header>
+  <Logo />
+  <Navigation />
+  <SocialNetworks />
+</header>
+
+<style>
+  header {
+    position: fixed;
+    height: 100vh;
+    width: var(--navbar-width);
+    padding: 20px;
+    z-index: var(--navbar-index);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    background-color: var(--color-white);
+    box-shadow: 3px 0 7px rgba(0, 0, 0, 0.5);
+  }
+</style>
